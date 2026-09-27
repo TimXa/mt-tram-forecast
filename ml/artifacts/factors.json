@@ -1,0 +1,94 @@
+{
+ "weather": {
+  "coef": {
+   "rain_warm": -0.05061,
+   "rain_we": -0.08496,
+   "snow": -0.04598,
+   "heat": -0.00866,
+   "cold": -0.0
+  },
+  "rain_warm_min_t": 12,
+  "heat_above_t": 20,
+  "cold_below_t": -5
+ },
+ "formula": "Для каждого дня: t = t_mean + temp_delta; дневные осадки и снег из сценария, если заданы, иначе из прогноза погоды; признаки rain_warm = ln(1+дождь) в будни при t >= 12, rain_we = ln(1+дождь) в нерабочие дни, snow = ln(1+снег), heat = max(t-20, 0), cold = max(-5-t, 0); множитель = exp(сумма coef x (признак сценария - признак прогноза)) x (1 + event_pct/100) x (1 + season_pct/100)",
+ "limits": {
+  "temp_delta": [
+   -15,
+   15
+  ],
+  "precip_mm": [
+   0,
+   20
+  ],
+  "snow_cm": [
+   0,
+   5
+  ],
+  "event_pct": [
+   -100,
+   100
+  ],
+  "season_pct": [
+   -30,
+   30
+  ]
+ },
+ "presets": [
+  {
+   "id": "snowfall",
+   "title": "Снегопад",
+   "temp_delta": -3,
+   "precip_mm": 0,
+   "snow_cm": 5,
+   "event_pct": 0,
+   "season_pct": 0
+  },
+  {
+   "id": "rain",
+   "title": "Затяжной дождь",
+   "temp_delta": 0,
+   "precip_mm": 12,
+   "snow_cm": 0,
+   "event_pct": 0,
+   "season_pct": 0
+  },
+  {
+   "id": "heat",
+   "title": "Жара",
+   "temp_delta": 8,
+   "precip_mm": 0,
+   "snow_cm": 0,
+   "event_pct": 0,
+   "season_pct": 0
+  },
+  {
+   "id": "closure",
+   "title": "Закрытие участка",
+   "temp_delta": 0,
+   "precip_mm": 0,
+   "snow_cm": 0,
+   "event_pct": -60,
+   "season_pct": 0
+  },
+  {
+   "id": "event",
+   "title": "Массовое мероприятие",
+   "temp_delta": 0,
+   "precip_mm": 0,
+   "snow_cm": 0,
+   "event_pct": 25,
+   "season_pct": 0
+  },
+  {
+   "id": "summer",
+   "title": "Летний спад",
+   "temp_delta": 0,
+   "precip_mm": 0,
+   "snow_cm": 0,
+   "event_pct": 0,
+   "season_pct": -20
+  }
+ ],
+ "note": "Погодные коэффициенты - те же, что в модели уровня дня, и применяются по тем же правилам: дождь в будни влияет только в тёплую погоду, жара - выше 20 °C. Мороз в данных 2025 года на поездки почти не влиял, его коэффициент близок к нулю. Осадки и снег - за дневные часы 7-21, в пределах, которые встречались в истории."
+}
