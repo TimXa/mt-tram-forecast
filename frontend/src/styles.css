@@ -1,32 +1,32 @@
 /* Design tokens. Light is the default, dark overrides the same names. */
 :root {
   color-scheme: light;
-  --bg: #f1efea;
-  --surface-1: #faf9f6;
-  --surface-2: #f3f1ec;
-  --surface-3: #e8e5de;
-  --line: #e0dcd3;
-  --line-strong: #cbc5b9;
-  --text-1: #1f1d1a;
-  --text-2: #57534c;
-  --text-3: #726d65;
-  --accent: #bf4a14;
-  --accent-ink: #fff8f2;
-  --accent-soft: rgba(191, 74, 20, 0.1);
-  --accent-line: rgba(191, 74, 20, 0.35);
+  --bg: #f7f7f4;
+  --surface-1: #ffffff;
+  --surface-2: #f0efeb;
+  --surface-3: #ebeae5;
+  --line: rgba(38,37,30,0.10);
+  --line-strong: rgba(38,37,30,0.18);
+  --text-1: #26251e;
+  --text-2: rgba(38,37,30,0.78);
+  --text-3: rgba(38,37,30,0.62);
+  --accent: #26251e;
+  --accent-ink: #f7f7f4;
+  --accent-soft: rgba(38,37,30,0.06);
+  --accent-line: rgba(38,37,30,0.30);
   /* the accent at lower emphasis: "close to the limit" */
-  --risk-tight: #e3a179;
+  --risk-tight: #b7791f;
   --shadow-pop: 0 12px 32px rgba(40, 32, 24, 0.14), 0 2px 6px rgba(40, 32, 24, 0.06);
 
   /* series: forecast is always the same hue, fact is ink */
-  --series-forecast: #2b6cc4;
-  --series-fact: #3d3a35;
-  --series-base: #9c968c;
+  --series-forecast: #26251e;
+  --series-fact: rgba(38,37,30,0.45);
+  --series-base: rgba(38,37,30,0.30);
 
   /* map load ramp, one hue from quiet to signal */
-  --load-0: #f2d6c2;
-  --load-1: #e0874f;
-  --load-2: #a8390c;
+  --load-0: #e6e4de;
+  --load-1: #9c998f;
+  --load-2: #26251e;
 
   /* routes, fixed order by route id (validated for CVD on adjacent pairs) */
   --route-1: #2b6cc4;
@@ -40,9 +40,9 @@
   --route-9: #c8457f;
   --route-none: #8f8a82;
 
-  --r-sm: 4px;
-  --r-md: 8px;
-  --r-lg: 12px;
+  --r-sm: 6px;
+  --r-md: 6px;
+  --r-lg: 6px;
 
   --fs-xs: 13px;
   --fs-sm: 14px;
@@ -59,39 +59,39 @@
   --sp-6: 24px;
   --sp-8: 32px;
 
-  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --ease: cubic-bezier(.23,1,.32,1);
   --dur: 180ms;
 
-  --font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  --font: Onest, Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --mono: Onest, Inter, system-ui, sans-serif;
   --rail-w: 232px;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #151413;
-  --surface-1: #1e1d1b;
-  --surface-2: #262522;
-  --surface-3: #312f2b;
-  --line: #34322e;
-  --line-strong: #47443e;
-  --text-1: #ede9e2;
-  --text-2: #b9b3a9;
-  --text-3: #908a80;
-  --accent: #f07a3e;
-  --accent-ink: #1b1410;
-  --accent-soft: rgba(240, 122, 62, 0.14);
-  --accent-line: rgba(240, 122, 62, 0.45);
-  --risk-tight: #9a5634;
+  --bg: #14120b;
+  --surface-1: #1d1b15;
+  --surface-2: #201e18;
+  --surface-3: #26241d;
+  --line: rgba(237,236,236,0.10);
+  --line-strong: rgba(237,236,236,0.16);
+  --text-1: #edecec;
+  --text-2: rgba(237,236,236,0.78);
+  --text-3: rgba(237,236,236,0.64);
+  --accent: #edecec;
+  --accent-ink: #14120b;
+  --accent-soft: rgba(237,236,236,0.07);
+  --accent-line: rgba(237,236,236,0.30);
+  --risk-tight: #b7791f;
   --shadow-pop: 0 16px 40px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
 
-  --series-forecast: #4a86da;
-  --series-fact: #d9d3c9;
-  --series-base: #7d786f;
+  --series-forecast: #edecec;
+  --series-fact: rgba(237,236,236,0.42);
+  --series-base: rgba(237,236,236,0.28);
 
-  --load-0: #5b3423;
-  --load-1: #d8703a;
-  --load-2: #ffc29c;
+  --load-0: #2c2a23;
+  --load-1: #8b887e;
+  --load-2: #edecec;
 
   --route-1: #4a86da;
   --route-2: #1fa897;
@@ -527,3 +527,17 @@ pre.code { margin: 0; background: var(--surface-2); border: 1px solid var(--line
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ---- SteelRework look: monochrome, status colours only for status ---- */
+:root { --signal: #c45a4a; --signal-soft: rgba(196, 90, 74, 0.12); --signal-line: rgba(196, 90, 74, 0.45); }
+.badge.signal { border-color: var(--signal-line); color: var(--signal); background: var(--signal-soft); }
+.stat.signal { border-color: var(--signal-line); }
+.stat.signal .stat-value, .risk.overload, .live-card .dev.signal, .state.error svg, .banner svg { color: var(--signal); }
+.risk.tight { color: var(--risk-tight); }
+.tbl tr.risk-overload td { background: var(--signal-soft); }
+.btn, .seg, .seg button, .badge, .pill { border-radius: 999px; }
+.btn-primary:hover { filter: none; opacity: .92; }
+h1, .page-title { font-weight: 400; letter-spacing: -.03em; }
+.brand { flex-direction: column; align-items: flex-start; gap: 6px; padding: 6px 8px 22px; }
+.brand-logo { height: 46px; width: auto; color: var(--text-1); display: block; }
+.brand-sub { font-size: var(--fs-xs); color: var(--text-3); line-height: 1.3; }

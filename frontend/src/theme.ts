@@ -11,9 +11,9 @@ function readPref(): ThemePref {
     const v = localStorage.getItem('theme')
     if (v === 'light' || v === 'dark') return v
   } catch {
-    // storage may be blocked, fall back to system
+    // storage may be blocked, fall back to the default
   }
-  return 'system'
+  return 'light'
 }
 
 export function useThemePref() {
@@ -78,8 +78,8 @@ export function readPalette(): Palette {
     text1: v('--text-1'),
     text2: v('--text-2'),
     text3: v('--text-3'),
-    accent: v('--accent'),
-    accentSoft: v('--accent-soft'),
+    accent: v('--signal'),
+    accentSoft: v('--signal-soft'),
     tight: v('--risk-tight'),
     forecast: v('--series-forecast'),
     fact: v('--series-fact'),

@@ -1,9 +1,10 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
 import { useApi, type Meta, type RouteInfo } from './api'
 import { AppContext, readPalette, useThemePref, type ThemePref } from './theme'
-import { BrandMark, Icon, type IconName } from './icons'
+import { Icon, type IconName } from './icons'
 import { ErrorState, Loading, Popover, Segmented } from './ui'
 import { dateLong } from './format'
+import { Logo } from './Logo'
 
 const pages = {
   map: { title: 'Карта', icon: 'map', view: lazy(() => import('./pages/MapPage')) },
@@ -69,11 +70,8 @@ export default function App() {
       <div className={'scrim' + (navOpen ? ' open' : '')} onClick={() => setNavOpen(false)} />
       <aside className={'rail' + (navOpen ? ' open' : '')} aria-label="Разделы">
         <div className="brand">
-          <span className="brand-mark"><BrandMark /></span>
-          <div>
-            <div className="brand-name">Загрузка трамваев</div>
-            <div className="brand-sub">прогноз пассажиропотока</div>
-          </div>
+          <Logo />
+          <div className="brand-sub">Загрузка трамваев · прогноз пассажиропотока</div>
         </div>
         <nav className="nav">
           {(Object.keys(pages) as PageId[]).map((id) => (

@@ -1,0 +1,19 @@
+# HTTPS in front of the demo. Run from the repo root:
+#   DEMO_DOMAIN=coder.example.com docker compose -f docker-compose.yml -f deploy/compose.caddy.yml up -d --build backend frontend caddy
+services:
+  caddy:
+    image: caddy:2-alpine
+    environment:
+      DEMO_DOMAIN: ${DEMO_DOMAIN:?set DEMO_DOMAIN}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - frontend
+    restart: unless-stopped
+
+volumes:
+  caddy_data:

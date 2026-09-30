@@ -156,6 +156,8 @@ python -m pipeline.run        # всё подряд; с ключом --no-ingest
 - [Внешние данные и их эффект](docs/external-data.md)
 - [Производительность](docs/performance.md)
 - [Ограничения и план развития](docs/limitations-roadmap.md)
+- [Презентация](docs/presentation/presentation.pdf) (PDF) и [интерактивная версия с анимациями](docs/presentation/presentation.html) (скачать и открыть в браузере; ← → листать, N - текст выступления)
+- [Запуск с HTTPS на своём домене](deploy/README.md)
 
 ## Структура
 
